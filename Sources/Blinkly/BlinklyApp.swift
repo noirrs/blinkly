@@ -1,26 +1,53 @@
-//
-//  blinklyApp.swift
-//  blinkly
-//
-//  Created by  on 3.09.2025.
-//
-
-// This file bridges to the actual BlinklyApp implementation in Sources/Blinkly/
-// All the real functionality is in Sources/Blinkly/BlinklyApp.swift
-
 import SwiftUI
 import AppKit
 import Combine
 
-@main
-struct blinklyApp: App {
+struct BlinklyApp: App {
     @StateObject private var appState = AppState()
     
     var body: some Scene {
-        // Menu bar only app - no windows in the app scene
-        // Settings window is handled programmatically via MenuBarController
-        Settings {
+        // Hidden main window (required for menu bar apps)
+        WindowGroup {
             EmptyView()
+                .onAppear {
+                    setupApp()
+                }
+        }
+        .windowStyle(.hiddenTitleBar)
+        .windowResizability(.contentSize)
+        
+        // Settings window
+        WindowGroup("Settings", id: "settings") {
+            SettingsView()
+                .environmentObject(appState.timerManager)
+                .environmentObject(appState.reminderManager)
+        }
+        .windowResizability(.contentSize)
+        .defaultSize(width: 600, height: 400)
+        .windowToolbarStyle(.unified)
+        .commandsRemoved()
+    }
+    
+    private func setupApp() {
+        // Hide the dock icon since this is a menu bar app
+        NSApp.setActivationPolicy(.accessory)
+        
+        // Set up manager dependencies
+        appState.menuBarController.setManagers(
+            timerManager: appState.timerManager,
+            reminderManager: appState.reminderManager
+        )
+        
+        // Set up break overlay management
+        appState.setupBreakOverlayManagement()
+        
+        // Hide all windows initially
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            NSApp.windows.forEach { window in
+                if window.title.isEmpty || window.title == "Blinkly" {
+                    window.setIsVisible(false)
+                }
+            }
         }
     }
 }
@@ -41,23 +68,6 @@ class AppState: ObservableObject {
     init() {
         // Set up manager dependencies
         timerManager.setReminderManager(reminderManager)
-        
-        // Schedule activation policy setting for when the app is ready
-        DispatchQueue.main.async {
-            // Ensure NSApp is available before setting activation policy
-            NSApp.setActivationPolicy(.accessory)
-            
-            // Set up manager dependencies
-            self.menuBarController.setManagers(
-                timerManager: self.timerManager,
-                reminderManager: self.reminderManager
-            )
-            
-            // Set up break overlay management
-            self.setupBreakOverlayManagement()
-            
-            print("🚀 Blinkly menu bar app initialized")
-        }
     }
     
     deinit {
@@ -72,7 +82,7 @@ class AppState: ObservableObject {
     func setupBreakOverlayManagement() {
         // Monitor timer state changes to show/hide break overlay
         timerManager.$isBreakActive
-            .sink { [weak self] (isBreakActive: Bool) in
+            .sink { [weak self] isBreakActive in
                 DispatchQueue.main.async {
                     if isBreakActive {
                         self?.showBreakOverlay()
@@ -85,7 +95,7 @@ class AppState: ObservableObject {
         
         // Monitor countdown visibility
         timerManager.$isCountdownVisible
-            .sink { [weak self] (isVisible: Bool) in
+            .sink { [weak self] isVisible in
                 DispatchQueue.main.async {
                     if isVisible {
                         self?.showFloatingCountdown()
@@ -98,7 +108,7 @@ class AppState: ObservableObject {
         
         // Monitor blink reminder overlay
         reminderManager.$showBlinkOverlay
-            .sink { [weak self] (show: Bool) in
+            .sink { [weak self] show in
                 DispatchQueue.main.async {
                     if show {
                         self?.showReminderOverlay(type: .blink, message: self?.reminderManager.currentBlinkMessage ?? "")
@@ -111,7 +121,7 @@ class AppState: ObservableObject {
         
         // Monitor posture reminder overlay
         reminderManager.$showPostureOverlay
-            .sink { [weak self] (show: Bool) in
+            .sink { [weak self] show in
                 DispatchQueue.main.async {
                     if show {
                         self?.showReminderOverlay(type: .posture, message: self?.reminderManager.currentPostureMessage ?? "")

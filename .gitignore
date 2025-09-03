@@ -1,0 +1,25 @@
+# Xcode
+.build/
+DerivedData/
+*.xcworkspace
+*.xcuserdata/
+*.xcscheme
+UserInterfaceState.xcuserstate
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Release builds
+release/
+*.dmg
+*.zip
+
+# SwiftPM
+.swiftpm/
+Package.resolved
+
+# CocoaPods
+Pods/
+*.podspec

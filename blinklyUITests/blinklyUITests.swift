@@ -2,7 +2,7 @@
 //  blinklyUITests.swift
 //  blinklyUITests
 //
-//  Created by tahakacmaz on 3.09.2025.
+//  Created by  on 3.09.2025.
 //
 
 import XCTest
