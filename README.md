@@ -18,11 +18,13 @@
 ## 🚀 Installation
 
 ### Option 1: Download DMG (Recommended)
+
 1. Download `Blinkly-v1.0.2.dmg` from [Releases](../../releases/latest)
 2. Open the DMG and drag Blinkly to Applications
 3. Launch from Applications or Spotlight
 
 ### Option 2: Download ZIP
+
 1. Download `Blinkly-v1.0.2.zip` from [Releases](../../releases/latest)
 2. Extract and move `blinkly.app` to Applications
 3. Right-click → Open (first time only for security)
@@ -52,6 +54,7 @@
 ## 🛠️ Development
 
 ### Building from Source
+
 ```bash
 git clone https://github.com/yourusername/blinkly.git
 cd blinkly
@@ -59,6 +62,7 @@ open blinkly.xcodeproj
 ```
 
 ### Requirements
+
 - Xcode 15.0+
 - macOS 13.0+ deployment target
 - Swift 5.0+
@@ -66,6 +70,7 @@ open blinkly.xcodeproj
 ## 📝 Release Notes
 
 ### v1.0.2 (Latest)
+
 - ✅ Fixed app launch crashes
 - ✅ Eliminated unwanted window opening
 - ✅ Removed dock item appearance
@@ -88,6 +93,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## 💖 Support
 
 If Blinkly helps your eye health, consider:
+
 - ⭐ Starring the repository
 - 🐛 Reporting bugs via Issues
 - 💡 Suggesting features
