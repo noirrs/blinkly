@@ -13,8 +13,12 @@ UserInterfaceState.xcuserstate
 
 # Release builds
 release/
+release-*/
+releases/
+builds/
 *.dmg
 *.zip
+*.xcarchive/
 
 # SwiftPM
 .swiftpm/
