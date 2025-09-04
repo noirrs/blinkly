@@ -2,9 +2,10 @@
 
 **A macOS menu bar app for healthy eye habits with smart media control**
 
-![macOS](https://img.shields.io/badge/macOS-13.0+-blue)
+![macOS](https://img.shields.io/badge/macOS-15.5+-blue)
 ![Swift](https://img.shields.io/badge/Swift-5.0+-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
+![Universal](https://img.shields.io/badge/Universal-Apple%20Silicon%20%2B%20Intel-purple)
 
 ## ✨ Features
 
@@ -17,17 +18,27 @@
 
 ## 🚀 Installation
 
+### Download Universal Binary (Supports All Macs)
+
+**Latest Release: v1.1.0** - Universal binary for both Apple Silicon and Intel Macs
+
 ### Option 1: Download DMG (Recommended)
 
-1. Download `Blinkly-v1.0.2.dmg` from [Releases](../../releases/latest)
+1. Download `blinkly-v1.1.0-universal.dmg` from [Releases](../../releases/latest)
 2. Open the DMG and drag Blinkly to Applications
 3. Launch from Applications or Spotlight
 
 ### Option 2: Download ZIP
 
-1. Download `Blinkly-v1.0.2.zip` from [Releases](../../releases/latest)
+1. Download `blinkly-v1.1.0-universal.zip` from [Releases](../../releases/latest)
 2. Extract and move `blinkly.app` to Applications
 3. Right-click → Open (first time only for security)
+
+### ✅ Compatibility
+
+- **Apple Silicon Macs**: M1, M2, M3, M4 (native ARM64)
+- **Intel Macs**: All Intel-based Mac models (native x86_64)
+- **No Rosetta Required**: Runs natively on all architectures
 
 ## 🎮 Usage
 
@@ -46,10 +57,12 @@
 
 ## 🔧 Technical Details
 
-- **Platform**: macOS 13.0+ (Apple Silicon & Intel)
+- **Platform**: macOS 15.5+ (Universal Binary)
+- **Architectures**: ARM64 (Apple Silicon) + x86_64 (Intel)
 - **Languages**: Swift, SwiftUI, AppKit
 - **Media Integration**: AppleScript for Spotify, Apple Music, browsers
-- **Architecture**: Async media detection, reactive state management
+- **Build**: Xcode 16.6, Code Signed
+- **Performance**: Native execution on all Mac architectures
 
 ## 🛠️ Development
 
@@ -63,13 +76,22 @@ open blinkly.xcodeproj
 
 ### Requirements
 
-- Xcode 15.0+
-- macOS 13.0+ deployment target
+- Xcode 16.0+
+- macOS 15.5+ deployment target
 - Swift 5.0+
+- Universal binary support (ARM64 + x86_64)
 
 ## 📝 Release Notes
 
-### v1.0.2 (Latest)
+### v1.1.0 (Latest) - Universal Binary Release
+
+- 🎯 **Universal Binary**: Native support for both Apple Silicon (ARM64) and Intel (x86_64)
+- ⚡ **Optimized Performance**: No Rosetta 2 translation required
+- 🔧 **Enhanced Compatibility**: Single app bundle works on all Mac models
+- 📦 **Release Assets**: DMG installer and ZIP archive available
+- 🏗️ **Built with**: Xcode 16.6, macOS 15.5+ target
+
+### v1.0.2
 
 - ✅ Fixed app launch crashes
 - ✅ Eliminated unwanted window opening
