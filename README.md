@@ -11,11 +11,13 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Universal](https://img.shields.io/badge/Universal-Apple%20Silicon%20%2B%20Intel-purple)
 
-## ✨ Features
+## 📱 App Preview
 
 <div align="center">
-  <img src=".github/assets/stats.png" alt="Blinkly Features" width="800"/>
+  <img src=".github/assets/preview.png" alt="Blinkly App Preview" width="800"/>
 </div>
+
+## ✨ Features
 
 - **🎯 Eye Break Reminders**: 30-second break intervals (demo mode)
 - **🎵 Smart Media Control**: Automatically pauses/resumes Spotify, Apple Music, browsers
@@ -24,11 +26,13 @@
 - **👁️ Blink Reminders**: Configurable blink and posture reminders
 - **📱 Menu Bar Only**: No dock icon, clean menu bar integration
 
-## 📱 Preview
+## ⚡ Performance & Optimization
 
 <div align="center">
-  <img src=".github/assets/preview.png" alt="Blinkly App Preview" width="800"/>
+  <img src=".github/assets/stats.png" alt="Blinkly Performance Stats - Only 50MB RAM Usage" width="800"/>
 </div>
+
+**Tiny footprint, maximum impact** - Blinkly uses only ~50MB of RAM while delivering full-featured break management. Built with SwiftUI's efficient rendering and optimized state management for minimal system resource usage.
 
 ## 🚀 Installation
 
