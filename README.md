@@ -1,5 +1,9 @@
 # Blinkly 👀
 
+<div align="center">
+  <img src=".github/assets/blinkly.png" alt="Blinkly Logo" width="200"/>
+</div>
+
 **A macOS menu bar app for healthy eye habits with smart media control**
 
 ![macOS](https://img.shields.io/badge/macOS-15.5+-blue)
@@ -9,12 +13,22 @@
 
 ## ✨ Features
 
+<div align="center">
+  <img src=".github/assets/stats.png" alt="Blinkly Features" width="800"/>
+</div>
+
 - **🎯 Eye Break Reminders**: 30-second break intervals (demo mode)
 - **🎵 Smart Media Control**: Automatically pauses/resumes Spotify, Apple Music, browsers
 - **📺 Multi-Screen Support**: Break overlays on all connected displays
 - **🖱️ Cursor Tracking**: Floating countdown follows your mouse
 - **👁️ Blink Reminders**: Configurable blink and posture reminders
 - **📱 Menu Bar Only**: No dock icon, clean menu bar integration
+
+## 📱 Preview
+
+<div align="center">
+  <img src=".github/assets/preview.png" alt="Blinkly App Preview" width="800"/>
+</div>
 
 ## 🚀 Installation
 
@@ -69,7 +83,7 @@
 ### Building from Source
 
 ```bash
-git clone https://github.com/yourusername/blinkly.git
+git clone https://github.com/noirrs/blinkly.git
 cd blinkly
 open blinkly.xcodeproj
 ```
